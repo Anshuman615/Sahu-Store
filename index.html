@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAHU STORE — Cement, TMT Bars & Construction Materials | Brahmapur</title>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>emailjs.init("Og3RXyVh4j7Dh28aJ");</script>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange: #E85D04;
+    --orange-light: #F48C06;
+    --dark: #0D0D0D;
+    --dark2: #1A1A1A;
+    --dark3: #252525;
+    --steel: #8B8B8B;
+    --light: #F5F0E8;
+    --white: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Barlow', sans-serif; background: var(--dark); color: var(--light); overflow-x: hidden; }
+
+  body::before {
+    content: ''; position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 9999; opacity: 0.4;
+  }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 72px; background: rgba(13,13,13,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(232,93,4,0.2); }
+  .logo { font-family: 'Bebas Neue', cursive; font-size: 2rem; letter-spacing: 3px; color: var(--white); }
+  .logo span { color: var(--orange); }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a { font-family: 'Barlow Condensed', sans-serif; font-size: 0.95rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--steel); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--orange); }
+  .nav-cta { background: var(--orange); color: var(--white) !important; padding: 10px 24px; font-weight: 700 !important; letter-spacing: 1.5px !important; clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%); }
+  .nav-cta:hover { background: var(--orange-light); }
+
+  /* HERO */
+  #hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding: 120px 5% 80px; position: relative; overflow: hidden; }
+  .hero-bg-lines { position: absolute; inset: 0; background-image: repeating-linear-gradient(90deg, rgba(232,93,4,0.04) 0px, rgba(232,93,4,0.04) 1px, transparent 1px, transparent 80px), repeating-linear-gradient(0deg, rgba(232,93,4,0.04) 0px, rgba(232,93,4,0.04) 1px, transparent 1px, transparent 80px); }
+  .hero-accent { position: absolute; top: -200px; right: -200px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(232,93,4,0.15) 0%, transparent 70%); pointer-events: none; }
+  .hero-left { position: relative; z-index: 2; }
+  .hero-tag { display: inline-flex; align-items: center; gap: 8px; background: rgba(232,93,4,0.15); border: 1px solid rgba(232,93,4,0.4); padding: 6px 16px; font-family: 'Barlow Condensed', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--orange-light); margin-bottom: 2rem; clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%); animation: fadeUp 0.8s ease forwards; opacity: 0; }
+  .hero-tag::before { content: ''; width: 6px; height: 6px; background: var(--orange); border-radius: 50%; }
+  h1 { font-family: 'Bebas Neue', cursive; font-size: clamp(4rem, 7vw, 7rem); line-height: 0.92; letter-spacing: 2px; color: var(--white); margin-bottom: 1.5rem; animation: fadeUp 0.8s 0.15s ease forwards; opacity: 0; }
+  h1 .highlight { color: var(--orange); display: block; }
+  .hero-desc { font-size: 1.1rem; font-weight: 300; line-height: 1.7; color: var(--steel); max-width: 480px; margin-bottom: 2.5rem; animation: fadeUp 0.8s 0.3s ease forwards; opacity: 0; }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp 0.8s 0.45s ease forwards; opacity: 0; }
+  .btn-primary { background: var(--orange); color: var(--white); padding: 16px 36px; font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; border: none; cursor: pointer; clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%); transition: background 0.2s, transform 0.2s; text-decoration: none; display: inline-block; }
+  .btn-primary:hover { background: var(--orange-light); transform: translateY(-2px); }
+  .btn-secondary { background: transparent; color: var(--light); padding: 16px 36px; font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; border: 1px solid rgba(245,240,232,0.3); cursor: pointer; clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%); transition: border-color 0.2s, color 0.2s; text-decoration: none; display: inline-block; }
+  .btn-secondary:hover { border-color: var(--orange); color: var(--orange); }
+  .hero-stats { display: flex; gap: 3rem; margin-top: 3.5rem; padding-top: 2.5rem; border-top: 1px solid rgba(245,240,232,0.1); animation: fadeUp 0.8s 0.6s ease forwards; opacity: 0; }
+  .stat-num { font-family: 'Bebas Neue', cursive; font-size: 2.8rem; color: var(--orange); line-height: 1; }
+  .stat-label { font-size: 0.8rem; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--steel); margin-top: 4px; }
+  .hero-right { position: relative; z-index: 2; display: flex; justify-content: center; align-items: center; animation: fadeIn 1s 0.5s ease forwards; opacity: 0; }
+  .hero-visual { position: relative; width: 420px; height: 420px; }
+  .hex-ring { position: absolute; inset: 0; border: 2px solid rgba(232,93,4,0.2); border-radius: 50%; animation: spin 20s linear infinite; }
+  .hex-ring::before { content: ''; position: absolute; top: -6px; left: 50%; transform: translateX(-50%); width: 12px; height: 12px; background: var(--orange); border-radius: 50%; }
+  .hex-ring-2 { position: absolute; inset: 30px; border: 1px solid rgba(232,93,4,0.1); border-radius: 50%; animation: spin 15s linear infinite reverse; }
+  .center-icon { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; }
+  .big-icon { font-size: 8rem; line-height: 1; filter: drop-shadow(0 0 30px rgba(232,93,4,0.5)); }
+  .icon-label { font-family: 'Bebas Neue', cursive; font-size: 1.4rem; letter-spacing: 4px; color: var(--orange); }
+  .floating-badge { position: absolute; background: var(--dark3); border: 1px solid rgba(232,93,4,0.4); padding: 12px 18px; font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; font-weight: 600; letter-spacing: 1px; color: var(--light); }
+  .badge-1 { top: 30px; right: -20px; animation: float 3s ease-in-out infinite; }
+  .badge-2 { bottom: 60px; left: -30px; animation: float 3s ease-in-out infinite 1.5s; }
+  .badge-3 { top: 50%; right: -40px; transform: translateY(-50%); animation: float 3s ease-in-out infinite 0.8s; }
+  .badge-dot { display: inline-block; width: 8px; height: 8px; background: var(--orange); border-radius: 50%; margin-right: 8px; }
+
+  /* BRANDS STRIP */
+  .brands-strip { background: var(--dark2); border-top: 1px solid rgba(232,93,4,0.15); border-bottom: 1px solid rgba(232,93,4,0.15); padding: 18px 0; display: flex; align-items: center; overflow: hidden; }
+  .brands-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--steel); white-space: nowrap; flex-shrink: 0; padding: 0 1.2rem; border-right: 1px solid rgba(255,255,255,0.1); }
+  .brands-scroll { display: flex; gap: 1.5rem; animation: marquee 25s linear infinite; white-space: nowrap; flex-shrink: 0; }
+  .brand-pill { display: inline-flex; align-items: center; gap: 6px; background: var(--dark3); border: 1px solid rgba(232,93,4,0.2); padding: 6px 16px; font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 1px; color: var(--light); white-space: nowrap; clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%); }
+  .brand-pill .bdot { width: 6px; height: 6px; background: var(--orange); border-radius: 50%; flex-shrink: 0; }
+
+  /* MARQUEE */
+  .marquee-section { background: var(--orange); padding: 14px 0; overflow: hidden; }
+  .marquee-track { display: flex; animation: marquee 20s linear infinite; white-space: nowrap; }
+  .marquee-item { font-family: 'Bebas Neue', cursive; font-size: 1.1rem; letter-spacing: 3px; color: rgba(0,0,0,0.7); padding: 0 2rem; display: inline-flex; align-items: center; gap: 1rem; }
+  .marquee-sep { color: rgba(0,0,0,0.4); }
+
+  /* PRODUCTS */
+  #products { padding: 100px 5%; }
+  .section-tag { font-family: 'Barlow Condensed', sans-serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--orange); margin-bottom: 1rem; display: flex; align-items: center; gap: 12px; }
+  .section-tag::after { content: ''; flex: 1; max-width: 60px; height: 1px; background: var(--orange); opacity: 0.5; }
+  .section-title { font-family: 'Bebas Neue', cursive; font-size: clamp(2.5rem, 5vw, 4rem); letter-spacing: 2px; color: var(--white); margin-bottom: 1rem; }
+  .section-sub { font-size: 1rem; color: var(--steel); font-weight: 300; max-width: 500px; margin-bottom: 3.5rem; line-height: 1.7; }
+  .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .product-card { background: var(--dark2); padding: 2.5rem; position: relative; overflow: hidden; cursor: pointer; transition: background 0.3s; border: 1px solid rgba(255,255,255,0.03); }
+  .product-card:hover { background: var(--dark3); }
+  .product-card::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--orange); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
+  .product-card:hover::before { transform: scaleX(1); }
+  .product-icon { font-size: 3rem; margin-bottom: 1.5rem; display: block; filter: grayscale(0.3); transition: filter 0.3s, transform 0.3s; }
+  .product-card:hover .product-icon { filter: grayscale(0); transform: scale(1.1); }
+  .product-name { font-family: 'Bebas Neue', cursive; font-size: 1.6rem; letter-spacing: 2px; color: var(--white); margin-bottom: 0.5rem; }
+  .product-brand { font-size: 0.8rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--orange); margin-bottom: 0.8rem; }
+  .product-desc { font-size: 0.9rem; color: var(--steel); line-height: 1.6; margin-bottom: 1.5rem; }
+  .product-price { font-family: 'Barlow Condensed', sans-serif; font-size: 1.3rem; font-weight: 700; color: var(--white); }
+  .product-price span { font-size: 0.8rem; color: var(--steel); font-weight: 400; }
+  .product-num { position: absolute; top: 1.5rem; right: 1.5rem; font-family: 'Bebas Neue', cursive; font-size: 3.5rem; color: rgba(255,255,255,0.04); line-height: 1; }
+
+  /* ORDER */
+  #order { padding: 100px 5%; background: var(--dark2); position: relative; overflow: hidden; }
+  #order::before { content: ''; position: absolute; top: -300px; right: -300px; width: 700px; height: 700px; background: radial-gradient(circle, rgba(232,93,4,0.08) 0%, transparent 70%); pointer-events: none; }
+  .order-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; max-width: 1100px; margin: 0 auto; }
+  .order-info h2 { font-family: 'Bebas Neue', cursive; font-size: clamp(2.5rem, 4vw, 3.5rem); letter-spacing: 2px; color: var(--white); line-height: 1; margin-bottom: 1.5rem; }
+  .order-info p { color: var(--steel); font-weight: 300; line-height: 1.8; margin-bottom: 2rem; }
+  .order-features { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+  .order-features li { display: flex; align-items: center; gap: 12px; font-size: 0.95rem; color: var(--light); font-weight: 500; }
+  .feat-icon { width: 36px; height: 36px; background: rgba(232,93,4,0.15); border: 1px solid rgba(232,93,4,0.3); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+  .order-form { background: var(--dark3); padding: 2.5rem; border: 1px solid rgba(255,255,255,0.06); position: relative; }
+  .order-form::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--orange), var(--orange-light)); }
+  .form-title { font-family: 'Bebas Neue', cursive; font-size: 1.8rem; letter-spacing: 2px; color: var(--white); margin-bottom: 2rem; }
+  .form-group { margin-bottom: 1.2rem; }
+  .form-group label { display: block; font-size: 0.75rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--steel); margin-bottom: 8px; }
+  .form-group input, .form-group select, .form-group textarea { width: 100%; background: var(--dark2); border: 1px solid rgba(255,255,255,0.08); color: var(--light); padding: 12px 16px; font-family: 'Barlow', sans-serif; font-size: 0.95rem; outline: none; transition: border-color 0.2s; }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--orange); }
+  .form-group select option { background: var(--dark2); }
+  .form-group textarea { height: 90px; resize: none; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .submit-btn { width: 100%; background: var(--orange); color: var(--white); padding: 16px; font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; border: none; cursor: pointer; margin-top: 0.5rem; transition: background 0.2s, transform 0.2s; }
+  .submit-btn:hover { background: var(--orange-light); transform: translateY(-2px); }
+  .submit-btn:disabled { background: var(--steel); cursor: not-allowed; transform: none; }
+
+  /* WHY US */
+  #why { padding: 100px 5%; }
+  .why-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 3rem; margin-bottom: 3.5rem; flex-wrap: wrap; }
+  .why-header-text { flex: 1; min-width: 280px; }
+  .store-photo-card { flex: 0 0 auto; width: 320px; position: relative; border: 2px solid rgba(232,93,4,0.3); overflow: hidden; }
+  .store-photo-card img { width: 100%; height: 220px; object-fit: cover; display: block; filter: saturate(0.9); transition: transform 0.4s; }
+  .store-photo-card:hover img { transform: scale(1.04); }
+  .store-photo-badge { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.85)); padding: 1.5rem 1rem 0.8rem; font-family: 'Barlow Condensed', sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--orange); }
+  .store-photo-badge span { display: block; color: var(--light); font-size: 0.7rem; letter-spacing: 1px; margin-top: 2px; }
+  .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+  .why-card { padding: 2rem; background: var(--dark2); border: 1px solid rgba(255,255,255,0.03); transition: background 0.3s; }
+  .why-card:hover { background: var(--dark3); }
+  .why-num { font-family: 'Bebas Neue', cursive; font-size: 4rem; color: rgba(232,93,4,0.15); line-height: 1; margin-bottom: 1rem; }
+  .why-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+  .why-title { font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--white); margin-bottom: 0.8rem; }
+  .why-desc { font-size: 0.88rem; color: var(--steel); line-height: 1.7; font-weight: 300; }
+
+  /* LOCATION */
+  #location { padding: 80px 5%; background: var(--dark2); }
+  .map-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 3rem; align-items: start; margin-top: 2.5rem; }
+  .map-info { display: flex; flex-direction: column; gap: 1.5rem; }
+  .map-info-card { background: var(--dark3); border: 1px solid rgba(255,255,255,0.06); padding: 1.4rem 1.6rem; display: flex; align-items: flex-start; gap: 1rem; border-left: 3px solid var(--orange); }
+  .map-info-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
+  .map-info-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--orange); margin-bottom: 4px; }
+  .map-info-value { font-size: 0.95rem; color: var(--light); line-height: 1.6; }
+  .map-info-value a { color: var(--orange-light); text-decoration: none; }
+ .map-embed { width: 100%; height: 500px; border: 1px solid rgba(232,93,4,0.25); filter: saturate(0.7) contrast(1.1); }
+
+  /* FOOTER */
+  #contact { background: var(--dark2); padding: 80px 5% 40px; border-top: 1px solid rgba(232,93,4,0.2); }
+  .contact-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.06); margin-bottom: 2rem; }
+  .contact-brand .logo { font-size: 2.5rem; margin-bottom: 1rem; display: block; }
+  .contact-brand p { font-size: 0.9rem; color: var(--steel); line-height: 1.7; max-width: 320px; margin-bottom: 1.5rem; }
+  .contact-detail { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 0.8rem; font-size: 0.9rem; color: var(--light); }
+  .contact-detail .ico { color: var(--orange); font-size: 1.1rem; margin-top: 1px; }
+  .footer-col h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); margin-bottom: 1.5rem; }
+  .footer-links { list-style: none; }
+  .footer-links li { margin-bottom: 0.7rem; font-size: 0.9rem; color: var(--steel); cursor: pointer; transition: color 0.2s; }
+  .footer-links li:hover { color: var(--light); }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: rgba(139,139,139,0.5); flex-wrap: wrap; gap: 0.5rem; }
+
+  /* TOAST */
+  .toast { position: fixed; bottom: 2rem; right: 2rem; background: var(--dark3); border: 1px solid var(--orange); border-left: 4px solid var(--orange); padding: 1rem 1.5rem; font-size: 0.9rem; color: var(--light); z-index: 9999; transform: translateY(100px); opacity: 0; transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); max-width: 320px; }
+  .toast.show { transform: translateY(0); opacity: 1; }
+  .toast strong { color: var(--orange); display: block; margin-bottom: 4px; }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @keyframes zoomIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+  @keyframes pulse-ring { 0% { box-shadow: 0 0 0 0 rgba(232,93,4,0.5); } 70% { box-shadow: 0 0 0 14px rgba(232,93,4,0); } 100% { box-shadow: 0 0 0 0 rgba(232,93,4,0); } }
+
+  /* MOBILE */
+  @media (max-width: 900px) {
+    #hero { grid-template-columns: 1fr; text-align: center; padding-top: 90px; padding-bottom: 60px; gap: 2rem; }
+    .hero-right { display: flex; order: -1; }
+    .hero-visual { width: 240px; height: 240px; }
+    .big-icon { font-size: 5rem; }
+    .icon-label { font-size: 1rem; }
+    .floating-badge { font-size: 0.7rem; padding: 7px 10px; }
+    .badge-1 { top: 10px; right: -10px; }
+    .badge-2 { bottom: 20px; left: -10px; }
+    .badge-3 { top: 50%; right: -15px; }
+    .hero-btns { justify-content: center; }
+    .hero-stats { justify-content: center; gap: 1.5rem; }
+    .hero-desc { font-size: 1rem; margin: 0 auto 2rem; }
+    h1 { font-size: clamp(3rem, 12vw, 5rem); }
+    .products-grid { grid-template-columns: 1fr; }
+    .order-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .why-grid { grid-template-columns: 1fr 1fr; }
+    .why-header { flex-direction: column; }
+    .store-photo-card { width: 100%; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .map-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .nav-links { display: none; }
+    .form-row { grid-template-columns: 1fr; }
+    .map-embed { height: 260px; }
+  }
+
+  @media (max-width: 480px) {
+    .why-grid { grid-template-columns: 1fr; }
+    .hero-visual { width: 200px; height: 200px; }
+    .big-icon { font-size: 4rem; }
+    .floating-badge { display: none; }
+    .hero-stats { gap: 1.2rem; }
+    .stat-num { font-size: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">SAHU <span>STORE</span></div>
+  <ul class="nav-links">
+    <li><a href="#products">Products</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#order">Order</a></li>
+    <li><a href="#location">Location</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#order" class="nav-cta">Get Quote</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-lines"></div>
+  <div class="hero-accent"></div>
+  <div class="hero-left">
+    <div class="hero-tag">Brahmapur, Odisha · Authorised Dealer</div>
+    <h1>Building Odisha<br><span class="highlight">Strong & Solid</span></h1>
+    <p class="hero-desc">Premium Cement, TMT Bars & all construction materials — Authorised dealer of Mahashakti, KCP Cement, Tata Tiscon, NSPL & more. Serving Brahmapur since years.</p>
+    <div class="hero-btns">
+      <a href="#products" class="btn-primary">Browse Products</a>
+      <a href="#order" class="btn-secondary">Request Quote</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-num">500+</div><div class="stat-label">Happy Clients</div></div>
+      <div><div class="stat-num">20+</div><div class="stat-label">Years Trust</div></div>
+      <div><div class="stat-num">6+</div><div class="stat-label">Top Brands</div></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-visual">
+      <div class="hex-ring"></div>
+      <div class="hex-ring-2"></div>
+      <div class="center-icon">
+        <span class="big-icon">🏗️</span>
+        <span class="icon-label">Construction</span>
+      </div>
+      <div class="floating-badge badge-1"><span class="badge-dot"></span>Tata Tiscon · NSPL</div>
+      <div class="floating-badge badge-2"><span class="badge-dot"></span>Mahashakti · KCP</div>
+      <div class="floating-badge badge-3"><span class="badge-dot"></span>Tata Tiscon · NSPL</div>
+    </div>
+  </div>
+</section>
+
+<!-- BRANDS STRIP -->
+<div class="brands-strip">
+  <div class="brands-label"></div>
+  <div class="brands-scroll" id="brandsScroll"></div>
+</div>
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track" id="marqueeTrack"></div>
+</div>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="section-tag">Our Products</div>
+  <h2 class="section-title">Everything You Need<br>To Build</h2>
+  <p class="section-sub">Authorised dealer for top brands — genuine products, best market price, delivered to your site.</p>
+  <div class="products-grid" id="productsGrid"></div>
+</section>
+
+<!-- ORDER -->
+<section id="order">
+  <div class="order-grid">
+    <div class="order-info">
+      <div class="section-tag">Place Order</div>
+      <h2>Get Materials<br>Delivered To<br>Your Site</h2>
+      <p>Fill in your requirements and our team will contact you with the best prices and delivery timeline within 2 hours.</p>
+      <ul class="order-features">
+        <li><div class="feat-icon">🚛</div> Free delivery above ₹50,000 order</li>
+        <li><div class="feat-icon">💰</div> Best price guarantee — we match any quote</li>
+        <li><div class="feat-icon">✅</div> Only ISI certified, authorised brand products</li>
+        <li><div class="feat-icon">📞</div> Call us: <strong style="color:var(--orange-light)">+91 99384 26427</strong></li>
+        <li><div class="feat-icon">📄</div> GST invoice provided for all purchases</li>
+      </ul>
+    </div>
+    <div class="order-form">
+      <div class="form-title">Quick Order Form</div>
+      <div class="form-row">
+        <div class="form-group"><label>Your Name</label><input type="text" id="fname" placeholder="Ramesh Kumar"></div>
+        <div class="form-group"><label>Phone Number</label><input type="tel" id="fphone" placeholder="+91 9876543224"></div>
+      </div>
+      <div class="form-group">
+        <label>Product Required</label>
+        <select id="fproduct">
+          <option value="">Select a product...</option>
+          <option>KCP Cement (OPC / PPC / PSC)</option>
+          <option>Mahashakti Cement</option>
+          <option>Tata Tiscon TMT Bar</option>
+          <option>MSP TMT Bars</option>
+          <option>NSPL TMT Bars</option>
+          <option>Binding Wire</option>
+          <option>Barbed Wire</option>
+          <option>GI Bar / Bar Bending Wire</option>
+          <option>Dr. Fixit Waterproofing</option>
+          <option>GI Angle / Flat / Square Bar</option>
+          <option>MS Angle / Square Bar Flat</option>
+          <option>MS & GI Hollow Files (Pipes/Tubes)</option>
+          <option>Emulsion / Enamel Paint</option>
+          <option>Primer / White Cement / Putty</option>
+          <option>Multiple Products</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Quantity</label><input type="text" id="fqty" placeholder="e.g. 100 bags"></div>
+        <div class="form-group"><label>Delivery Area</label><input type="text" id="fcity" placeholder="e.g. Digapahandi, Brahmapur"></div>
+      </div>
+      <div class="form-group"><label>Additional Notes</label><textarea id="fnotes" placeholder="Brand preference, delivery date, site address..."></textarea></div>
+      <button class="submit-btn" id="submitBtn" onclick="submitOrder()">Submit Order Request →</button>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US + GALLERY -->
+<section id="why">
+  <div class="why-header">
+    <div class="why-header-text">
+      <div class="section-tag">Why SAHU STORE</div>
+      <h2 class="section-title">The Trusted Name In<br>Brahmapur Construction</h2>
+      <p class="section-sub" style="margin-bottom:0">Authorised dealer for 6+ national brands. Serving Brahmapur, Digapahandi & surrounding areas.</p>
+    </div>
+    <div class="store-photo-card">
+      <img src="images/store.jpg" alt="SAHU STORE — Brahmapur"
+        onerror="this.style.display='none'">
+      <div class="store-photo-badge">
+        SAHU  STORE
+        <span>Duduma Colony, Digapahandi Road, Brahmapur</span>
+      </div>
+    </div>
+  </div>
+  <div class="why-grid">
+    <div class="why-card"><div class="why-num">01</div><span class="why-icon">🏆</span><div class="why-title">6+ Auth. Brands</div><p class="why-desc">Authorised dealer for Mahashakti, KCP Cement & Tata Tiscon, MSP, NSPL TMT Bars — 100% genuine.</p></div>
+    <div class="why-card"><div class="why-num">02</div><span class="why-icon">💲</span><div class="why-title">Best Price</div><p class="why-desc">We match or beat any competitor's price. Bulk buyers get exclusive rates and credit facilities.</p></div>
+    <div class="why-card"><div class="why-num">03</div><span class="why-icon">⚡</span><div class="why-title">Fast Delivery</div><p class="why-desc">Serving Brahmapur, Digapahandi & nearby areas. Quick delivery so your site never stops.</p></div>
+    <div class="why-card"><div class="why-num">04</div><span class="why-icon">📞</span><div class="why-title">Call Anytime</div><p class="why-desc">Reach us at <strong style="color:var(--orange-light)">99384 26427</strong>. Dedicated service for contractors and homeowners.</p></div>
+  </div>
+
+<!-- LOCATION -->
+<section id="location">
+  <div class="section-tag">Find Us</div>
+  <h2 class="section-title">Visit Our Store</h2>
+  <div class="map-grid">
+    <div class="map-info">
+      <div class="map-info-card">
+        <div class="map-info-icon">📍</div>
+        <div>
+          <div class="map-info-label">Address</div>
+          <div class="map-info-value">SAHU  STORE<br>Duduma Colony, Digapahandi Road<br>Brahmapur, Odisha – 760006</div>
+        </div>
+      </div>
+      <div class="map-info-card">
+        <div class="map-info-icon">📞</div>
+        <div>
+          <div class="map-info-label">Phone</div>
+          <div class="map-info-value"><a href="tel:+919938426427">+91 99384 26427</a></div>
+        </div>
+      </div>
+      <div class="map-info-card">
+        <div class="map-info-icon">🕐</div>
+        <div>
+          <div class="map-info-label">Working Hours</div>
+       <div class="map-info-value">Mon – Sun: 8:00 AM – 7:00 PM</div>
+        </div>
+      </div>
+      <div class="map-info-card">
+        <div class="map-info-icon">🏙️</div>
+        <div>
+          <div class="map-info-label">Service Area</div>
+          <div class="map-info-value">Brahmapur · Digapahandi · Berhampur &amp; surrounding Ganjam district areas</div>
+        </div>
+      </div>
+    </div>
+    <iframe class="map-embed"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3786.4!2d84.7941!3d19.3148!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3d4a0e3f000001%3A0x1!2sDuduma+Colony%2C+Digapahandi+Road%2C+Brahmapur%2C+Odisha+760006!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+      allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="contact-grid">
+    <div class="contact-brand">
+      <span class="logo">SAHU <span style="color:var(--orange)">STORE</span></span>
+      <p>Authorised dealer for Mahashakti, KCP Cement, Tata Tiscon & NSPL TMT. Your trusted construction partner in Brahmapur.</p>
+      <div class="contact-detail"><span class="ico">📍</span> Duduma Colony, Digapahandi Road, Brahmapur, Odisha – 760006</div>
+      <div class="contact-detail"><span class="ico">📞</span> <a href="tel:+919938426427" style="color:var(--light);text-decoration:none">+91 99384 26427</a></div>
+      <div class="contact-detail"><span class="ico">🕐</span> Mon–Sun: 8:00 AM – 7:00 PM</div>
+    </div>
+    <div class="footer-col">
+      <h4>Products</h4>
+      <ul class="footer-links">
+        <li>Mahashakti · KCP</li><li>KCP Cement</li><li>NSPL TMT</li>
+        <li>Tata Tiscon · NSPL</li><li>Dr. Fixit Waterproofing</li><li>Structural Items</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul class="footer-links">
+        <li>Bulk Orders</li><li>Site Delivery</li><li>Material Planning</li>
+        <li>Credit Facility</li><li>GST Billing</li><li>Home Delivery</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 SAHU STORE, Brahmapur. All rights reserved.</span>
+    <span>Designed with ❤️ by Anshuman</span>
+  </div>
+</footer>
+
+<div class="toast" id="toast">
+  <strong>✅ Order Request Sent!</strong>
+  Hamari team 2 ghante mein call karegi!
+</div>
+
+<!-- ✅ FIREBASE SDK -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+  // Firebase config
+  const firebaseConfig = {
+    apiKey: "AIzaSyC5YBdn1NQLUHCjcdwN64HHIp8VeifvKbA",
+    authDomain: "sahu-store-d64c7.firebaseapp.com",
+    projectId: "sahu-store-d64c7",
+    storageBucket: "sahu-store-d64c7.firebasestorage.app",
+    messagingSenderId: "454836597278",
+    appId: "1:454836597278:web:0ae56fd51e50a956b4b40f",
+    measurementId: "G-V7YMD8YDS7"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // Order submit function — global scope mein daalo
+  window.submitOrder = async function() {
+    const name    = document.getElementById('fname').value.trim();
+    const phone   = document.getElementById('fphone').value.trim();
+    const product = document.getElementById('fproduct').value;
+    const quantity= document.getElementById('fqty').value.trim();
+    const city    = document.getElementById('fcity').value.trim();
+    const notes   = document.getElementById('fnotes').value.trim();
+
+    if (!name || !phone || !product) {
+      alert('Name, Phone aur Product fill karo!');
+      return;
+    }
+
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+
+    try {
+      await addDoc(collection(db, 'orders'), {
+        name, phone, product, quantity, city, notes,
+        time: serverTimestamp(),
+        status: 'new'
+      });
+
+      // EmailJS se email bhejo
+      emailjs.send('service_tmmavjn', 'template_0chzpzu', {
+        customer_name: name,
+        customer_phone: phone,
+        product: product,
+        quantity: quantity || 'Not specified',
+        city: city || 'Not specified',
+        notes: notes || 'None'
+      });
+
+      // Toast show karo
+      const toast = document.getElementById('toast');
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 4000);
+
+      // Form clear
+      ['fname','fphone','fqty','fcity','fnotes'].forEach(id => document.getElementById(id).value = '');
+      document.getElementById('fproduct').value = '';
+
+    } catch (err) {
+      alert('Kuch error aaya! Dobara try karo.');
+      console.error(err);
+    }
+
+    btn.disabled = false;
+    btn.textContent = 'Submit Order Request →';
+  };
+</script>
+
+<script>
+  // ===== BRANDS =====
+  const brands = ['KCP Cement (OPC/PPC/PSC)','Mahashakti Cement','Tata Tiscon TMT','NSPL TMT','Dr. Fixit (Exclusive)','Paint & Putty','Structural Items','Binding Wire'];
+  const bScroll = document.getElementById('brandsScroll');
+  const brandItems = [...brands, ...brands, ...brands].map(b =>
+    '<span class="brand-pill"><span class="bdot"></span>' + b + '</span>'
+  ).join('');
+  bScroll.innerHTML = brandItems;
+
+  // ===== PRODUCTS =====
+  const products = [
+    { icon:'🏭', name:'Cement', brand:'Mahashakti · KCP', desc:'Authorised dealer for Mahashakti & KCP cement. Auth. dealer for Dalmia — OPC, PPC & PSC grade available.', num:'01' },
+    { icon:'⚙️', name:'TMT Bars', brand:'Tata Tiscon · MSP · NSPL', desc:'Authorised dealer for Tata Tiscon, MSP TMT bars & NSPL TMT. Fe 500 & Fe 550 grade, all sizes.', num:'02' },
+    { icon:'🔩', name:'Binding Wire', brand:'Binding Wire · Barbed Wire', desc:'Binding wire, barbed wire and bar bending wire — all gauges available. Essential for every construction project.', num:'03' },
+    { icon:'💧', name:'Waterproofing', brand:'Dr. Fixit — Exclusive Outlet', desc:'Exclusive authorised outlet for Dr. Fixit products. Complete waterproofing range for roofs, walls & basements.', num:'04' },
+    { icon:'🏗️', name:'Structural Items', brand:'GI Angle · Flat · Square Bar · MS Angle · Hollow Sections', desc:'GI & MS Angle, Flat Bar, Square Bar, MS & GI Hollow Files (Pipes/Tubes) for all structural work.', num:'05' },
+    { icon:'🎨', name:'Paint & Finish', brand:'Emulsion · Enamel · Primer · White Cement · Putty', desc:'Exterior & interior emulsion, enamel paint, primer, white cement and wall putty for a perfect finish.', num:'06' },
+  ];
+  const pgrid = document.getElementById('productsGrid');
+  products.forEach(function(p) {
+    pgrid.innerHTML += '<div class="product-card">'
+      + '<span class="product-num">' + p.num + '</span>'
+      + '<span class="product-icon">' + p.icon + '</span>'
+      + '<div class="product-name">' + p.name + '</div>'
+      + '<div class="product-brand">' + p.brand + '</div>'
+      + '<p class="product-desc">' + p.desc + '</p>'
+      + '<div class="product-price" style="color:var(--orange);font-size:0.85rem;letter-spacing:1px">📞 Call for Best Price</div>'
+      + '</div>';
+  });
+
+  // ===== MARQUEE =====
+  const mItems = ['KCP Cement','Mahashakti Cement','Tata Tiscon TMT','NSPL TMT','Dr. Fixit','Binding Wire','Barbed Wire','Structural Items','Paint & Putty','White Cement'];
+  const track = document.getElementById('marqueeTrack');
+  track.innerHTML = [...mItems, ...mItems, ...mItems].map(function(i) {
+    return '<span class="marquee-item">' + i + ' <span class="marquee-sep">✦</span></span>';
+  }).join('');
+</script>
+</body>
+</html>
